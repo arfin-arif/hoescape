@@ -1,0 +1,613 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: $jakarta;
+  overflow-x: hidden;
+  min-width: 1400px;
+}
+
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: $black;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+.main {
+  padding-left: auto;
+  transition: 0.1s;
+
+  &-body {
+    margin: 30px 0;
+  }
+}
+
+.container {
+  margin: 0 30px;
+}
+
+.search-form {
+  width: 392px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: $border;
+  border-radius: 6px;
+  background-color: #f4f6f8;
+  padding: 7px 15px;
+  color: $text;
+  gap: 10px;
+  font-family: $manrope;
+
+  label {
+    font-size: 16px;
+    color: $text;
+    padding-top: 3px;
+  }
+
+  input {
+    width: 100%;
+    height: 100% !important;
+    border: none !important;
+    background-color: transparent;
+    font-family: $manrope;
+    outline: none !important;
+
+    &::placeholder {
+      text-transform: capitalize;
+      color: $text;
+      font-family: $manrope;
+    }
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: $text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    font-size: 18px;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+}
+
+// dropdown
+
+.dropdown {
+  position: absolute;
+  top: 170%;
+  background-color: $white;
+  min-width: 100%;
+  border: $border;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: max-content;
+
+  -webkit-box-shadow: 0px 3px 20px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 20px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 20px -11px rgba(0, 0, 0, 0.75);
+
+  li {
+    a {
+      text-transform: capitalize;
+      font-family: $dm;
+      transition: 0.3s;
+      color: $black;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.btn {
+  background-color: $primary;
+  border: $border;
+  border-color: $primary;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: $white;
+  font-size: 14px;
+  font-family: $jakarta;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+  font-weight: 600;
+
+  & > svg {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $primary;
+  }
+
+  &.delete {
+    background-color: $red;
+    color: $white;
+    border: none;
+
+    &:disabled {
+      background: $grey;
+      cursor: auto;
+    }
+  }
+
+  &-white {
+    background-color: white;
+    color: $primary;
+    border-color: $color-border;
+
+    &:hover {
+      color: $white;
+      background-color: $primary;
+    }
+  }
+}
+
+.title {
+  font-family: $jakarta;
+  font-size: 36px;
+  font-weight: 600;
+  color: $dark;
+  line-height: 48px;
+}
+
+.select {
+  display: flex;
+  gap: 5px;
+  font-size: 14px;
+  align-items: center;
+  position: relative;
+
+  span {
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+  }
+
+  .icon {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: $text;
+    padding-top: 4px;
+    cursor: pointer;
+    padding-right: 10px;
+  }
+
+  .active {
+    color: $dark;
+  }
+
+  .dropdown {
+    top: 110%;
+    right: 0;
+    min-width: 50%;
+    text-align: left;
+    z-index: 999;
+
+    animation: opacity 0.5s;
+
+    button {
+      border: none;
+      background-color: transparent;
+      transition: 0.1s;
+      width: 100%;
+      cursor: pointer;
+      text-align: left;
+      padding: 5px 10px;
+      border-radius: 4px;
+
+      &:hover {
+        transform: scale(1.001);
+        transform-origin: center;
+        background-color: rgba($color: $primary, $alpha: 0.05);
+      }
+    }
+  }
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  transform-origin: center;
+  transition: 0.3s;
+  font-family: $jakarta;
+  border: $border;
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.dateline {
+  display: flex;
+  align-items: center;
+
+  border: $border;
+  border-radius: 4px;
+  gap: 10px;
+  color: $grey;
+
+  font-size: 14px;
+  font-weight: 600;
+  span {
+    padding: 0;
+  }
+
+  & > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 0 10px 14px;
+
+    & > span {
+      width: auto !important;
+    }
+  }
+
+  .text {
+    color: $grey;
+  }
+
+  svg {
+    margin-bottom: -2px;
+  }
+
+  .icon {
+    padding: 7px 10px 7px 0;
+    margin-bottom: -4px;
+  }
+}
+
+.popup-title {
+  font-size: 18px;
+  color: $black;
+  padding-bottom: 15px;
+}
+
+.filter {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $white;
+  width: 220px;
+  border: $border;
+  box-shadow: $shadow;
+  border-radius: 4px;
+  padding: 20px;
+
+  &-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: $border;
+    padding: 10px 0;
+
+    .name {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      & > span {
+        background-color: rgba($color: $primary, $alpha: 0.16);
+        width: 18px;
+        height: 18px;
+        color: $primary;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      p {
+        font-family: $manrope;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    & > button {
+      background-color: transparent;
+      border: none;
+      font-family: $manrope;
+      color: $primary;
+      text-decoration: underline;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+
+  &-btns {
+    padding: 10px 0;
+    display: flex;
+    gap: 8px;
+
+    & > button {
+      width: 93px;
+      height: 36px;
+      border: $border;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border-radius: 4px;
+      text-transform: capitalize;
+      color: $black;
+      font-size: 12px;
+      font-weight: 600;
+      transition: 0.1s;
+      transform-origin: center;
+
+      &:hover {
+        transform: scale(1.01);
+      }
+
+      &.apply {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+
+  &-item {
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: $border;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 600;
+      color: $dark;
+
+      & > small {
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary;
+        color: $white;
+        border-radius: 50%;
+      }
+    }
+
+    &-body {
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: 0.3s;
+
+      &.show {
+        height: auto;
+        opacity: 1;
+      }
+
+      & > .group {
+        padding: 10px 0;
+        display: flex;
+        gap: 10px;
+        overflow: hidden;
+
+        input {
+          width: 16px;
+        }
+
+        label {
+          font-size: 14px;
+          font-family: $manrope;
+          font-weight: 500;
+          color: $grey;
+        }
+      }
+    }
+
+    &-bottom {
+      & > button {
+        color: $primary;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: $yollow;
+}
+
+.bootcump {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 20px 0;
+
+  &-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    & > a {
+      color: $grey;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.05px;
+      transition: 0.3s;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    & > span {
+      color: $primary;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: $jakarta;
+    }
+  }
+}
+
+.copy-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  border-bottom: $border;
+
+  &-left {
+    & > a {
+      background-color: rgba($color: $primary, $alpha: 0.2);
+      padding: 5px 10px;
+      border-radius: 4px;
+      color: $primary;
+      font-family: $jakarta;
+      font-size: 14px;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+    & > span {
+      padding: 5px 10px;
+      border-radius: 4px;
+      color: $grey;
+      font-family: $jakarta;
+      font-size: 15px;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+  }
+
+  &-right {
+    & > .coped {
+      color: $green;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: capitalize;
+      animation: opacity 1s;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+    & > button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      color: $primary;
+      border: none;
+      background-color: transparent;
+      font-family: $jakarta;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+      opacity: 0.8;
+      animation: opacity 2s;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+      svg {
+        font-size: 16px;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.separator {
+  width: 2px;
+  height: 25px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0) 0%,
+    rgba(217, 217, 217, 0.52) 47.92%,
+    rgba(217, 217, 217, 0) 100%,
+    rgba(217, 217, 217, 0) 100%
+  );
+}
+
+.description {
+  & > h4 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.08px;
+    color: $dark;
+    padding-bottom: 20px;
+    font-family: $jakarta;
+  }
+
+  & > p {
+    font-family: $jakarta;
+    font-size: 14px;
+    color: #1e1e1e;
+    opacity: 0.7;
+    line-height: 160%;
+    white-space: pre-line;
+  }
+
+  & > button {
+    margin-top: 0px;
+    border: none;
+    background-color: transparent;
+    color: $primary;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}

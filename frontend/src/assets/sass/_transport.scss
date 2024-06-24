@@ -1,0 +1,84 @@
+.transport {
+  &-body {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & > .item {
+      border: $border;
+      border-radius: 8px;
+
+      .item-top {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          padding-left: 20px;
+
+          strong {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            position: relative;
+            color: $dark;
+
+            &::after {
+              content: "";
+              width: 8px;
+              height: 8px;
+              background-color: $primary;
+              position: absolute;
+              top: 50%;
+              left: -15px;
+              transform: translateY(-50%);
+              border-radius: 2px;
+            }
+          }
+
+          span {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            color: $grey;
+          }
+        }
+
+        & > a {
+          border: $border;
+          color: $primary;
+          padding: 8px 16px;
+          border-radius: 4px;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          opacity: 0.8;
+          transition: 0.3s;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      .item-bottom {
+        background-color: rgba($color: $grey, $alpha: 0.1);
+        padding: 10px;
+        display: flex;
+        gap: 20px;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: $grey;
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

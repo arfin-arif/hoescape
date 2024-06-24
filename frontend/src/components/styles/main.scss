@@ -1,0 +1,321 @@
+@import "./_variables.sass";
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&family=Manrope:wght@200;300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.jakarta {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+// Actual styles
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 100px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid $border;
+  background-color: #fff;
+  transition: width 0.3s ease;
+
+  &.active {
+    width: 260px;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 0 36px;
+      height: 70px;
+      border-bottom: 1px solid $border;
+
+      .expand-icon {
+        background-color: #fff;
+        box-shadow: $cardShadow;
+        width: 27px;
+        height: 27px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -15px;
+      }
+
+      .jakarta {
+        display: flex;
+        color: $black;
+        font-size: 29px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -2.303px;
+      }
+    }
+
+    .page-info {
+      padding-left: 21px;
+      display: flex;
+      align-items: center;
+      gap: 163px;
+      padding: 6px 0 6px 21px;
+
+      p {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 29px;
+        letter-spacing: 1px;
+        color: $pageInfo;
+      }
+
+      svg {
+        display: block;
+        cursor: pointer;
+      }
+    }
+
+    .page-links {
+      margin: 0px 22px;
+
+      ul {
+        margin-bottom: 2px;
+
+        li {
+          position: relative;
+          margin-bottom: 5px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          &:hover a {
+            color: $themeBlue;
+            background: $activeNav;
+            svg {
+              fill: $themeBlue !important;
+            }
+          }
+          a {
+            width: 100%;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-radius: 4px;
+            background: transparent;
+            color: $pageInfo;
+            background-color: transparent;
+
+            &::before {
+              content: "";
+              width: 4px;
+              height: 100%;
+              background: $themeBlue;
+              position: absolute;
+              left: -22px;
+              top: 0;
+              border-radius: 0px 4px 4px 0px;
+              opacity: 0;
+            }
+
+            &.active::before {
+              opacity: 1;
+            }
+
+            &.active {
+              color: $themeBlue;
+              background: $activeNav;
+            }
+
+            svg {
+              fill: $pageInfo;
+            }
+
+            &.active svg {
+              fill: $themeBlue !important;
+            }
+
+            p {
+              display: block;
+              font-size: 15px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 20px;
+              opacity: 1;
+              transition: opacity 0.5s ease-in;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .logo {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid $border;
+
+    .jakarta {
+      display: none;
+    }
+
+    .expand-icon {
+      background-color: #fff;
+      box-shadow: $cardShadow;
+      width: 27px;
+      height: 27px;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -15px;
+    }
+  }
+
+  .page-info {
+    padding-left: 21px;
+    display: flex;
+    align-items: center;
+    gap: 163px;
+    padding: 6px 0 6px 21px;
+
+    p {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 29px;
+      letter-spacing: 1px;
+      color: $pageInfo;
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .page-links {
+    margin: 0px 22px;
+
+    ul {
+      margin-bottom: 2px;
+      width: 100%;
+
+      li {
+        width: 100%;
+        position: relative;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover a {
+          color: $themeBlue;
+          background: $activeNav;
+          svg {
+            fill: $themeBlue !important;
+          }
+        }
+
+        a {
+          padding: 12px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          border-radius: 4px;
+          background: transparent;
+          color: $pageInfo;
+          background-color: transparent;
+
+          &::before {
+            content: "";
+            width: 4px;
+            height: 100%;
+            background: $themeBlue;
+            position: absolute;
+            left: -22px;
+            top: 0;
+            border-radius: 0px 4px 4px 0px;
+            opacity: 0;
+          }
+
+          &.active::before {
+            opacity: 1;
+          }
+
+          &.active {
+            color: $themeBlue;
+            background: $activeNav;
+          }
+
+          svg {
+            fill: $pageInfo;
+          }
+
+          &.active svg {
+            fill: $themeBlue !important;
+          }
+
+          p {
+            display: none;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
